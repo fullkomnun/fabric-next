@@ -66,6 +66,12 @@ docker build -f ./images/fabric-peer-softhsm/Dockerfile \
  -t ${BASE_NAMESPACE}/fabric-peer-softhsm:${FABRIC_NEXT_IMAGE_TAG} \
  ./images/fabric-peer-softhsm
 
+ # Build softhsm orderer
+ docker build -f ./images/fabric-orderer-softhsm/Dockerfile \
+  --build-arg ARCH=${ARCH} \
+  -t ${BASE_NAMESPACE}/fabric-orderer-softhsm:${FABRIC_NEXT_IMAGE_TAG} \
+  ./images/fabric-orderer-softhsm
+
 # Fabric ccenv image
 declare -x FABRIC_CCENV_IMAGE=hyperledger/fabric-ccenv
 # Use latest tag as that was the image produced by the fabric build above
